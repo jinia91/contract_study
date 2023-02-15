@@ -19,7 +19,7 @@ internal class TestControllerTest {
     lateinit var sut: TestClient
 
     @Test
-    fun `호출하면 성공한다`() {
+    fun `다 기입하고 호출하면 성공한다`() {
         //given
         val input = TestRequest("test", 11, "렌딧")
 
@@ -28,6 +28,30 @@ internal class TestControllerTest {
 
         //then
         Assertions.assertThat(call.result).isEqualTo("success")
+    }
+
+    @Test
+    fun `이름없이 호출하면 실패한다`() {
+        //given
+        val input = TestRequest(null, 11, "렌딧")
+
+        //when
+        val call = sut.call(input)
+
+        //then
+        Assertions.assertThat(call.result).isEqualTo("fail")
+    }
+
+    @Test
+    fun `나이없이 호출하면 실패한다`() {
+        //given
+        val input = TestRequest("test", null, "렌딧")
+
+        //when
+        val call = sut.call(input)
+
+        //then
+        Assertions.assertThat(call.result).isEqualTo("fail")
     }
 
 }

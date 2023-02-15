@@ -4,7 +4,8 @@ data class TestResponse(
    val result: String
 ) {
     companion object {
-        fun build() = TestResponse("success")
+        fun success() = TestResponse("success")
+        fun fail() = TestResponse("fail")
     }
 }
 
