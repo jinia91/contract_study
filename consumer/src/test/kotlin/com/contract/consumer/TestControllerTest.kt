@@ -21,7 +21,7 @@ internal class TestControllerTest {
     @Test
     fun `호출하면 성공한다`() {
         //given
-        val input = TestRequest("test", 10, "렌딧")
+        val input = TestRequest("test", 11, "렌딧")
 
         //when
         val call = sut.call(input)

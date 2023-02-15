@@ -1,8 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.cloud.contract.spec.ContractDsl.Companion.contract
+
 
 buildscript {
     dependencies {
         classpath("org.springframework.cloud:spring-cloud-contract-spec-kotlin:3.1.2")
+        classpath("org.springframework.cloud:spring-cloud-contract-gradle-plugin:3.1.2")
     }
 }
 
@@ -33,6 +36,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.cloud:spring-cloud-starter-contract-verifier")
+    testImplementation("org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable")
     testImplementation("org.springframework.cloud:spring-cloud-contract-spec-kotlin")
 }
 
